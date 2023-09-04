@@ -1,0 +1,7 @@
+
+
+class CriarProdutosController{
+
+}
+
+export { CriarProdutosController }
