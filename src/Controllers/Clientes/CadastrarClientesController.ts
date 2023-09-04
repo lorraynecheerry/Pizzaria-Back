@@ -21,6 +21,8 @@ class CriarClientesController {
         const criarClientesServices = new CriarClientesServices()
         //clientes = nome da tabela do schema 
         //execute metodo que pega informaçoes
+
+        
         // const clientes = await criarClientesServices.execute({
         //     nome,
         //     celular,
