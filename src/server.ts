@@ -22,4 +22,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(3333, () => console.log( 'Servidao Rodando na porta 3333'))
+app.listen(3334, () => console.log( 'Servidao Rodando na porta 3334'))
