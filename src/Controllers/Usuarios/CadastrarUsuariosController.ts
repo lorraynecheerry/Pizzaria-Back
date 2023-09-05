@@ -4,13 +4,14 @@ import { CadastrarUsuarioServices} from '../../Services/Usuarios/CadastrarUsuari
 class CadastrarUsuariosController{
     async handle(req :Request, res: Response) { 
         const {nome, email, senha} = req.body
-        const cadastrarUsuariosServices = new CadastrarUsuarioServices()
-        const usuarios = await cadastrarUsuariosServices.execute({
+        //instanciar
+        const cadastrarUsuarioServices = new CadastrarUsuarioServices()
+        const usuarios = await cadastrarUsuarioServices.execute({
             nome,
             email,
             senha
         })
-        console.log(usuarios)
+       return (usuarios)
 
     }
 

@@ -10,8 +10,8 @@ class CadastrarUsuarioServices{
     async execute({nome, email, senha} : CadastrarUsuarios) {
         if (!nome|| !email|| !senha){
             throw new Error('Campos em Brancos nao sao permitidos')
-
         }
+
         const emailCadastrado = await prismaClient.user.findFirst({
             where:{
                 email: email
@@ -23,6 +23,7 @@ class CadastrarUsuarioServices{
             throw new Error ('Email ja esta Cadastrdao')
         }
 
+        //criando a constante para criar o cadastro no bd
         const usuario = await prismaClient.user.create({
             data:{
                 nome:nome,
@@ -31,7 +32,7 @@ class CadastrarUsuarioServices{
             }
 
         })
-        return{ dados: usuario}
+        return{ dados: usuario} //retornar a resposta
       
     }
 }
