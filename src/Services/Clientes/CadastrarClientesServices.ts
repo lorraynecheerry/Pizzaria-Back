@@ -59,10 +59,14 @@ class CadastrarClientesServices {
             },
             select: {
                 nome: true,
-                celular: true, fixo: true,
-                cpf_cnpj: true, rg_ie: true,
-                rua: true, bairro: true,
-                cidade: true, estado: true,
+                celular: true,
+                fixo: true,
+                cpf_cnpj: true,
+                rg_ie: true,
+                rua: true,
+                bairro: true,
+                cidade: true,
+                estado: true,
                 complemento: true
             }
         })

@@ -24,7 +24,7 @@ class CadastrarUsuarioServices{
         }
 
         //criando a constante para criar o cadastro no bd
-        const usuario = await prismaClient.user.create({
+        const usuarios = await prismaClient.user.create({
             data:{
                 nome:nome,
                 email:email,
@@ -32,7 +32,7 @@ class CadastrarUsuarioServices{
             }
 
         })
-        return{ dados: usuario} //retornar a resposta
+        return { data: usuarios} //retornar a resposta
       
     }
 }

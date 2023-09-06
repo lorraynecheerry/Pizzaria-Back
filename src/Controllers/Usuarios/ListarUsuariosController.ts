@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListarUsuariosServices } from '../../Services/Usuarios/ListarUsuariosSerices'
+import { ListarUsuariosServices } from '../../Services/Usuarios/ListarUsuariosServices'
 
 class ListarUsuariosController{
     async handle(req: Request, res: Response) {

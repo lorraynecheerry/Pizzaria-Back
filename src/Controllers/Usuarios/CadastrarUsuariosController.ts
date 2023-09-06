@@ -11,7 +11,7 @@ class CadastrarUsuariosController{
             email,
             senha
         })
-       return (usuarios)
+       return res.json (usuarios)
 
     }
 
