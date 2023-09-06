@@ -1,14 +1,13 @@
-import { Response, Request } from "express";
+import { Request, Response } from "express";
 import { ListarClientesServices} from '../../Services/Clientes/ListarClientesServices'
 
 class ListarClientesController{
-    async handle(res:Response, req:Request) {
-        const listarClientesServices = new ListarClientesServices()
-        const clientes = await listarClientesServices.execute()
-        
-      console.log(clientes)
-        
-    }
-}
+  async handle (req:Request, res: Response){
 
-export{ ListarClientesController }
+      const listarClientesServices = new ListarClientesServices ()
+      const clientes = await listarClientesServices.execute()
+      return res.json(clientes)
+  }
+
+}
+export { ListarClientesController }
