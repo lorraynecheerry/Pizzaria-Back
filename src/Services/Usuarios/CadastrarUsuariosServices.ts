@@ -32,7 +32,7 @@ class CadastrarUsuarioServices{
             }
 
         })
-        return { data: usuarios} //retornar a resposta
+        return { data: usuarios} //retorna a resposta
       
     }
 }
