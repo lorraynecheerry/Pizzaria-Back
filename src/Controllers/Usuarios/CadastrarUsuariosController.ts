@@ -1,19 +1,20 @@
-import { Request, Response} from 'express'
-import { CadastrarUsuarioServices} from '../../Services/Usuarios/CadastrarUsuariosServices'
+import { Request, Response } from 'express'
+import { CadastrarUsuarioServices } from '../../Services/Usuarios/CadastrarUsuariosServices'
 
-class CadastrarUsuariosController{
-    async handle(req :Request, res: Response) { 
-        const {nome, email, senha} = req.body
-        //instanciar
+class CadastrarUsuariosController {
+    async handle(req: Request, res: Response) {
+        const { name, email, password } = req.body
         const cadastrarUsuarioServices = new CadastrarUsuarioServices()
         const usuarios = await cadastrarUsuarioServices.execute({
-            nome,
+            name,
             email,
-            senha
+            password
         })
-       return res.json (usuarios)
+
+        return res.json(usuarios)
 
     }
+
 
 }
 

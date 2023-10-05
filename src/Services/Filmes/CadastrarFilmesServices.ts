@@ -20,7 +20,6 @@ class CadastrarFilmesServices {
             throw new Error('Filme ja Cadastrado')
         }
 
-
         const filmes = await prismaClient.films.create({
             data: {
                 name: name,

@@ -11,7 +11,7 @@ class DeletarUsuariosServices {
                 id: apagarUsuarios
             }
         })
-        return('Usuario Apagado com Sucesso')
+        return { data: 'Usuario Apagado com Sucesso' }
     }
 }
 

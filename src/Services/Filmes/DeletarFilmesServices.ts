@@ -11,9 +11,8 @@ class DeletarFilmeServices{
                 id:apagar
             }
         })
-        return('Filme Apagado com Sucesso')
+        return{data:'Filme Apagado com Sucesso'}
     }
 }
- 
 
 export { DeletarFilmeServices }
