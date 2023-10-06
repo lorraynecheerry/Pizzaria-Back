@@ -4,7 +4,7 @@ import cors from 'cors'
 import { router } from './router'
 
 const app = express()
-app.use(express.json)
+app.use(express.json())
 app.use(cors())
 app.use(router)
 
@@ -22,4 +22,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(3334, () => console.log( 'Servidao Rodando na porta 3334'))
+app.listen(3333, () => console.log( 'Servidao Rodando na porta 3333'))

@@ -10,43 +10,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model User {
   id        String    @id @default(uuid())
-  nome      String
+  name      String
   email     String
-  senha     String
+  password  String
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
   @@map("usuarios")
 }
 
-model Clientes {
-  id          String    @id @default(uuid())
-  nome        String
-  celular     String
-  fixo        String
-  cpf_cnpj    String
-  rg_ie       String
-  rua         String
-  bairro      String
-  cidade      String
-  estado      String
-  complemento String
+model Films {
+  id    String @id @default(uuid())
+  name  String
+  value String
+  description String
   create_at   DateTime? @default(now())
   update_at   DateTime? @default(now())
 
-  @@map("clientes")
-}
-
-model Produtos {
-  id         String    @id @default(uuid())
-  nome       String
-  preco      String
-  fornecedor String
-  quantdade  String
-  create_at  DateTime? @default(now())
-  update_at  DateTime? @default(now())
-
-  @@map("produtos")
+  @@map("filmes")
 }

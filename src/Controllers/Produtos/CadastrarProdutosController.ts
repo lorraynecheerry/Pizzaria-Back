@@ -1,7 +1,0 @@
-
-
-class CriarProdutosController{
-
-}
-
-export { CriarProdutosController }

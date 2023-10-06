@@ -1,38 +1,41 @@
 import prismaClient from "../../prisma";
 
-interface CadastrarUsuarios{
-    nome: string
+interface CadastrarUsuarios {
+    name: string
     email: string
-    senha: string
+    password: string
 }
 
-class CadastrarUsuarioServices{
-    async execute({nome, email, senha} : CadastrarUsuarios) {
-        if (!nome|| !email|| !senha){
-            throw new Error('Campos em Brancos nao sao permitidos')
-
+class CadastrarUsuarioServices {
+    async execute({ name, email, password }: CadastrarUsuarios) {
+        if (!name || !email || !password) {
+            throw new Error('Campos em Brancos não deve ser Permitidos')
         }
         const emailCadastrado = await prismaClient.user.findFirst({
-            where:{
+            where: {
                 email: email
             }
         })
-
-        //chamando a constante de cima
-        if(emailCadastrado){
-            throw new Error ('Email ja esta Cadastrdao')
+        if (emailCadastrado) {
+            throw new Error('Email ja esta Cadastrdao')
         }
 
-        const usuario = await prismaClient.user.create({
-            data:{
-                nome:nome,
-                email:email,
-                senha:senha
+        const usuarios = await prismaClient.user.create({
+            data: {
+                name: name,
+                email: email,
+                password: password
+            },
+            select: {
+                id: true,
+                name: true,
+                email: true
             }
 
         })
-        return{ dados: usuario}
-      
+        console.log(usuarios)
+
+
     }
 }
 
