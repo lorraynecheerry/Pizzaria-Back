@@ -14,7 +14,7 @@ import { ListarUsuariosController } from "./Controllers/Usuarios/ListarUsuariosC
 import { DeletarFilmesController } from "./Controllers/Filmes/DeletarFilmesController";
 import { DeletarUsuariosController } from "./Controllers/Usuarios/DeletarUsuariosController";
 
-import { AlterarUsuariosController } from "./Controllers/Usuarios/AlterarUsuariosControoler";
+import { AlterarUsuariosController } from "./Controllers/Usuarios/AlterarUsuariosController";
 
 
 import { Autenticado } from "./middleware/Autenticado";
@@ -25,8 +25,9 @@ const router = Router()
 //Usuarios
 router.post('/CriarUsuarios', new CadastrarUsuariosController().handle)
 router.get('/ListarUsuarios',Autenticado, new ListarUsuariosController().handle)
-router.delete('/DeletarUsuario/:id',Autenticado, new DeletarUsuariosController().handle)
+router.delete('/DeletarUsuario',Autenticado, new DeletarUsuariosController().handle)
 router.post ('/AuthLogin', new AuthUsuarioController().handle)
+router.put ('/AlterarUsuarios',new AlterarUsuariosController().handle)
 
 //Filmes
 router.post('/CriarFilmes',Autenticado, new CadastrarFilmesController().handle)

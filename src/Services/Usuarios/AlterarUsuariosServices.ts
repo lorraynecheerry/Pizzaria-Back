@@ -7,7 +7,6 @@ interface alteraUsers {
 }
 
 
-
 class AlterarUsuariosServices {
     async execute({ id, name, email }: alteraUsers) {
         await prismaClient.user.update({
