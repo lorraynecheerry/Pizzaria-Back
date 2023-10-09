@@ -1,29 +1,29 @@
-// import { Request, Response, NextFunction, request } from 'express'
-// import { verify } from 'jsonwebtoken'
+import { Request, Response, NextFunction, request } from 'express'
+import { verify } from 'jsonwebtoken'
 
-// interface Payload {
-//     sub: string
-// }
+interface Payload {
+    sub: string
+}
 
-// export function Autenticado(
-//     req: Request,
-//     res: Response,
-//     next: NextFunction
-// ) {
-//     const authToken = req.headers.authorization
-//     if(!authToken) {
-//         return res.status(401).end()
-//     }
-//     const[, token] = authToken.split(' ')
+export function Autenticado(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
+    const authToken = req.headers.authorization
+    if(!authToken) {
+        return res.status(401).end()
+    }
+    const[, token] = authToken.split(' ')
 
-//     try{
-//         const {sub} = verify(
-//             token,
-//             process.env.JWT_SEGREDO
-//         ) as Payload
+    try{
+        const {sub} = verify(
+            token,
+            process.env.JWT_SEGREDO
+        ) as Payload
 
-//         console.log(sub)
-//     } catch (err) {
-//         return res.status(401).end()
-//     }
-// }
+        return next()
+    } catch (err) {
+        return res.status(401).end()
+    }
+}

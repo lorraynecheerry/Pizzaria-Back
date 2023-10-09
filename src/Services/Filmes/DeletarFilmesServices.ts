@@ -4,7 +4,7 @@ interface DeletarFilme{
     apagar: string
 }
 
-class DeletarFilmeServices{
+class DeletarFilmeServices {
     async execute ({ apagar} : DeletarFilme) {
         await prismaClient.films.delete({
             where:{

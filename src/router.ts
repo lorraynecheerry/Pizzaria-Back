@@ -12,20 +12,26 @@ import { ListarUsuariosController } from "./Controllers/Usuarios/ListarUsuariosC
 
 //Deletar
 import { DeletarFilmesController } from "./Controllers/Filmes/DeletarFilmesController";
-import { DeletarUsuariosController } from './Controllers/Usuarios/DeletarUsuariosController'
+import { DeletarUsuariosController } from "./Controllers/Usuarios/DeletarUsuariosController";
 
+import { AlterarUsuariosController } from "./Controllers/Usuarios/AlterarUsuariosControoler";
+
+
+import { Autenticado } from "./middleware/Autenticado";
+import { AuthUsuarioController } from "./Controllers/AuthUsuariosController";
 
 const router = Router()
 
 //Usuarios
 router.post('/CriarUsuarios', new CadastrarUsuariosController().handle)
-router.get('/ListarUsuarios', new ListarUsuariosController().handle)
-router.delete('/DeletarUsuario/:id', new DeletarUsuariosController().handle)
+router.get('/ListarUsuarios',Autenticado, new ListarUsuariosController().handle)
+router.delete('/DeletarUsuario/:id',Autenticado, new DeletarUsuariosController().handle)
+router.post ('/AuthLogin', new AuthUsuarioController().handle)
 
 //Filmes
-router.post('/CriarFilmes', new CadastrarFilmesController().handle)
-router.get('/ListarFilmes', new ListarFilmesController().handle)
-router.delete('/DeletarFilmes/:id', new DeletarFilmesController().handle)
+router.post('/CriarFilmes',Autenticado, new CadastrarFilmesController().handle)
+router.get('/ListarFilmes',Autenticado, new ListarFilmesController().handle)
+router.delete('/DeletarFilmes/:id',Autenticado,new DeletarFilmesController().handle)
 
 
 export { router }
