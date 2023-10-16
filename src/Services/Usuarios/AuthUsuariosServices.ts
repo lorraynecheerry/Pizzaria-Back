@@ -4,18 +4,20 @@ import { sign } from 'jsonwebtoken'
 
 interface AuthLogin{
     email: string
-    password: string
+    senha: string
 }
 
 class AuthUsuariosServices{
-    async execute({ email, password }: AuthLogin){
+    async execute({ email, senha }: AuthLogin){
 
         const usuario = await prismaClient.user.findFirst({
             where:{
                 email: email
             }
         })
-        if(!usuario){
+        
+        const autenticado = await compare(senha, usuario.password)
+        if(!autenticado){
             throw new Error('Usuário/Senha Incorretos')
         }
        

@@ -4,11 +4,11 @@ import { AuthUsuariosServices } from '../Services/Usuarios/AuthUsuariosServices'
 
 class AuthUsuarioController{
     async handle(req: Request, res: Response){
-        const { email, password } = req.body
+        const { email, senha } = req.body        
         const authUsuarioServices = new AuthUsuariosServices()
         const resposta = await authUsuarioServices.execute({
             email,
-            password
+            senha
         })
         return res.json(resposta)
     }

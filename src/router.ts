@@ -30,7 +30,7 @@ router.post ('/AuthLogin', new AuthUsuarioController().handle)
 router.put ('/AlterarUsuarios',new AlterarUsuariosController().handle)
 
 //Filmes
-router.post('/CriarFilmes',Autenticado, new CadastrarFilmesController().handle)
+router.post('/CriarFilmes', new CadastrarFilmesController().handle)
 router.get('/ListarFilmes',Autenticado, new ListarFilmesController().handle)
 router.delete('/DeletarFilmes/:id',Autenticado,new DeletarFilmesController().handle)
 

@@ -12,7 +12,7 @@ export function Autenticado(
 ) {
     const authToken = req.headers.authorization
     if(!authToken) {
-        return res.status(401).end()
+        return res.json({dados: 'Token Inexistente'})
     }
     const[, token] = authToken.split(' ')
 
@@ -24,6 +24,6 @@ export function Autenticado(
 
         return next()
     } catch (err) {
-        return res.status(401).end()
+        return res.json({dados: 'Token Inválido'})    
     }
 }
